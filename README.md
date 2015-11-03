@@ -3,11 +3,18 @@
 
 ## Usage
 
--Add .scss mixin and breakpoint variable files to your project
--Use with
+Add .scss mixin and breakpoint variable to your project. An example use is,
 ```sass
 	#myElement {
 		@include respond-to($from: 'small', $to: 'medium') { margin-right: 20px }
+	}
+```
+Which compiles to 
+```css
+	@media screen and (min-width: 601px) and (max-width: 960px) {
+		#myElement {
+			margin-right: 20px
+		}
 	}
 ```
 
