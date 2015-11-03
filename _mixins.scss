@@ -1,0 +1,77 @@
+// responsive manager
+// @define                {mixin} used to provide cleaner method of accessing breakpoints
+// @param @required $args {map}                ($from: _, $to: _, $media-type: _)
+// @param $media-type     {String}             (all | print | screen | speech)
+// @param $from           {String, cssValue}   min-width
+// @param $to             {String, cssValue}   max-width
+// @example 
+//    #myElement {
+//       width: 500px // default
+//       @include respond-to($to: 'small') { width: 300px } // responsive from 0 to 'small' breakpoint
+//    }
+@mixin respond-to($args...) {
+   // define defaults
+   $args: keywords($args);
+   $from: 0px;
+   $media-type: 'screen';
+   $to: 0px;
+
+   // find if using different media type
+   @if map-has-key($args, 'media-type') {
+      $media-type: map-get($args, 'media-type');
+      $args: map-remove($args, $media-type);
+   }   
+   // find min-width
+   @if map-has-key($args, 'from') {
+      $from: map-get($args, 'from');
+      $args: map-remove($args, 'from');
+      @if map-has-key($breakpoints, $from) {
+         // using default breakpoint
+         $from: map-get($breakpoints, $from);
+         // prevent media query overlap
+         $from: $from + 1px;
+      }
+      @else {
+         // using custom breakpoint
+         @if type-of($from)=='string' {
+            @error 'Provided string that doesn`t exist in breakpoint map.';
+         }
+         @warn 'Using custom media query, it`s best to only change content at set breakpoints.';
+      }
+   }
+   // find max-width
+   @if map-has-key($args, 'to') {
+      $to: map-get($args, 'to');
+      $args: map-remove($args, 'to');
+      @if map-has-key($breakpoints, $to) {
+         // using default breakpoint
+         $to: map-get($breakpoints, $to);
+      }
+      @else {
+         // using custom breakpoint
+         @if type-of($to)=='string' {
+            @error 'Provided string that doesn`t exist in breakpoint map.';
+         }
+         @warn 'Using custom media query, it`s best to only change content at set breakpoints.';
+      }
+
+      @media #{$media-type} and (min-width: #{$from}) and (max-width: #{$to}) {
+         @content;
+      }
+   }
+   @else {
+      @if $from == 0px and $to == 0px {
+         // didn't set values, or making a screen type media query
+         @warn 'min and max widths are set to 0 or weren`t provided. Are you sure you wanted to just make a @media {screen-type} {} query?';
+         @media #{$media-type} {
+            @content;
+         }
+      }
+      @else {
+         // media query should only have min-width
+         @media #{$media-type} and (min-width: #{$from}) {
+            @content;
+         }
+      }    
+   }
+}
