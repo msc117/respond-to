@@ -3,9 +3,9 @@
 
 ## Usage
 ###npm
-`$ npm i respond-to`
+`$ npm i respond-to-mixin`
 ###bower
-`$ bower i respond-to`
+`$ bower i respond-to-mixin`
 
 Add into your project through `require()` or otherwise.
 
