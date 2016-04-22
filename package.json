@@ -2,7 +2,8 @@
   "name": "respond-to-mixin",
   "version": "1.0.0",
   "description": "Easy to use SASSlang responsive manager",
-  "main": "none",
+  "main": "respond-to.scss",
+  "style": "respond-to.scss",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/t0rrro/respond-to.git"
