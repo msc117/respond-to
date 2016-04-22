@@ -1,6 +1,6 @@
 {
   "name": "respond-to-mixin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy to use SASSlang responsive manager",
   "main": "respond-to.scss",
   "style": "respond-to.scss",
