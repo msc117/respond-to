@@ -1,3 +1,10 @@
+// breakpoint map
+$breakpoints: (
+	'small' : 600px,
+	'medium': 960px',
+	'large' : 1200px
+);
+
 // responsive manager
 // @define                {mixin} used to provide cleaner method of accessing breakpoints
 // @param @required $args {map}                ($from: _, $to: _, $media-type: _)

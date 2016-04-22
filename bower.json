@@ -1,0 +1,24 @@
+{
+  "name": "respond-to-mixin",
+  "homepage": "https://github.com/t0rrro/respond-to",
+  "authors": [
+    "Mikel Santos <msantos@wolfram.com>"
+  ],
+  "description": "Easy to use SASSlang responsive manager",
+  "main": "respond-to.scss",
+  "keywords": [
+    "responsive",
+    "mixin",
+    "sass",
+    "scss",
+    "sasslang"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

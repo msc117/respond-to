@@ -1,0 +1,21 @@
+{
+  "name": "respond-to-mixin",
+  "version": "1.0.0",
+  "description": "Easy to use SASSlang responsive manager",
+  "main": "none",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t0rrro/respond-to.git"
+  },
+  "keywords": [
+    "responsive",
+    "mixin",
+    "sass"
+  ],
+  "author": "Mikel Santos <msantos@wolfram.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/t0rrro/respond-to/issues"
+  },
+  "homepage": "https://github.com/t0rrro/respond-to#readme"
+}
